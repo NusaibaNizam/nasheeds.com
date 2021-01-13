@@ -13,9 +13,5 @@
 		public static $passwordContainableError="Password can only contain Numbers, Letters and Spaces";
 		public static $passwordLengthError="Your Password should be between 8 to 35 characters";
 		
-		function __construct()
-		{
-			# code...
-		}
 	}
 ?>

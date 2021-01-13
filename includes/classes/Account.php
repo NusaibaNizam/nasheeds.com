@@ -46,7 +46,7 @@
 		private function validateFirstName($f)
 		{
 			if(strlen($f)>25 || strlen($f)<2){
-				array_push($this->errorArray, "Your First Name should be between 25 to 2 characters");
+				array_push($this->errorArray, Constants::$firstNameLengthError);
 				return;
 			}
 		}
@@ -55,7 +55,7 @@
 		{
 
 			if(strlen($l)>25 || strlen($l)<2){
-				array_push($this->errorArray, "Your Last Name should be between 25 to 2 characters");
+				array_push($this->errorArray, Constants::$lastNameLengthError);
 				return;
 			}
 		}
@@ -63,11 +63,11 @@
 		private function validateEmail($e1,$e2)
 		{
 			if ($e1 != $e2) {
-				array_push($this->errorArray, "The Emails don't match");
+				array_push($this->errorArray, Constants::$emailDoNotMatchError);
 				return;	
 			}
 			if (!(filter_var($e1,FILTER_VALIDATE_EMAIL))) {
-				array_push($this->errorArray, "The Email is not valid");
+				array_push($this->errorArray, Constants::$emailNotValidError);
 				return;	
 			}
 			//TODO: check if email already exists
@@ -77,15 +77,15 @@
 		{
 			
 			if ($p1 != $p2) {
-				array_push($this->errorArray, "The Passwords don't match");
+				array_push($this->errorArray, Constants::$passwordDoNotMatchError);
 				return;	
 			}
 			if(preg_match('/[^a-zA-Z0-9 ]/', $p1)){
-				array_push($this->errorArray, "Password can only contain Numbers, Letters and Spaces");
+				array_push($this->errorArray, Constants::$passwordContainableError);
 				return;	
 			}
 			if(strlen($p1)>35 || strlen($p1)<8){
-				array_push($this->errorArray, "Your Password should be between 8 to 35 characters");
+				array_push($this->errorArray, Constants::$passwordLengthError);
 				return;
 			}
 		}
