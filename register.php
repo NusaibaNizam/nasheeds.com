@@ -7,6 +7,11 @@
 	
 	include("includes/handlers/register_handler.php");
 	include("includes/handlers/login_handler.php");
+	function getValue($var){
+		if(isset($_POST[$var])){
+			echo $_POST[$var];
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -34,27 +39,27 @@
 			<p>
 				<?php echo $account->getError(Constants::$userNameLengthError);?>
 				<label for="registerUserName">User Name</label>
-				<input type="text" name="registerUserName" id="registerUserName" placeholder="e.g. Mark Zukabarg" required>
+				<input type="text" name="registerUserName" id="registerUserName" value="<?php getValue('registerUserName')?>" placeholder="e.g. Mark Zukabarg" required>
 			</p>
 			<p>
 				<?php echo $account->getError(Constants::$firstNameLengthError);?>
 				<label for="firstName">First Name</label>
-				<input type="text" name="firstName" id="firstName" placeholder="e.g. Mark" required>
+				<input type="text" name="firstName" value="<?php getValue('firstName')?>" id="firstName" placeholder="e.g. Mark" required>
 			</p>
 			<p>
 				<?php echo $account->getError(Constants::$lastNameLengthError);?>
 				<label for="lastName">Last Name</label>
-				<input type="text" name="lastName" id="lastName" placeholder="e.g. Zukabarg" required>
+				<input type="text" name="lastName"  id="lastName" value="<?php getValue('lastName')?>" placeholder="e.g. Zukabarg" required>
 			</p>
 			<p>
 				<?php echo $account->getError(Constants::$emailNotValidError);?>
 				<label for="emailAddress">Email Address</label>
-				<input type="email" name="emailAddress" id="emailAddress" placeholder="esomeone@example.com" required>
+				<input type="email" name="emailAddress" id="emailAddress" value="<?php getValue('emailAddress')?>" placeholder="esomeone@example.com" required>
 			</p>
 			<p>
 				<?php echo $account->getError(Constants::$emailDoNotMatchError);?>
 				<label for="comfirmEmail">Confirm Email</label>
-				<input type="email" name="comfirmEmail" id="comfirmEmail" required>
+				<input type="email" name="comfirmEmail" id="comfirmEmail"  value="<?php getValue('comfirmEmail')?>"required >
 			</p>
 			<p>
 				<?php echo $account->getError(Constants::$passwordContainableError);?>
