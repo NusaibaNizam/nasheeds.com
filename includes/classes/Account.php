@@ -37,7 +37,7 @@
 		private function validateUserName($u)
 		{
 			if(strlen($u)>25 || strlen($u)<3){
-				array_push($this->errorArray, "Your User Name should be between 25 to 3 characters");
+				array_push($this->errorArray, Constants::$userNameLengthError);
 				return;
 			}
 			//TODO: check if User Name already exists

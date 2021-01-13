@@ -2,6 +2,7 @@
 	
 
 	include("includes/classes/Account.php");
+	include("includes/classes/Constants.php");
 	$account=new Account();
 	
 	include("includes/handlers/register_handler.php");
