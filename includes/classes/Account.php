@@ -5,9 +5,11 @@
 	class Account
 	{
 		private $errorArray;
+		private $con;
 		
-		public function __construct()
+		public function __construct($con)
 		{
+			$this->con=$con;
 			$this->errorArray= array();
 		}
 
@@ -20,7 +22,7 @@
 			$this->validatePassword($registerPassword,$confirmPassword);
 			if(empty($this->errorArray)){
 				//TODO:Insert to database
-				return true;
+				return function insertToDatabase($registerUserName, $firstName, $lastName, $emailAddress, $registerPassword);
 			}
 			else{
 				return false;
@@ -32,6 +34,11 @@
 				$error="";
 			}
 			return "<span class='errorMsg'>".$error."</span>";
+		}
+		private function insertToDatabase($u, $f, $l, $e1, $p1){
+			$encriptedPassword=md5($p1);
+			$profilePic="";
+
 		}
 
 		private function validateUserName($u)
