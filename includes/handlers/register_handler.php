@@ -26,6 +26,7 @@ if (isset($_POST['SignUp'])) {
 	
 	$registerSuccess=$account->register($registerUserName, $firstName, $lastName, $emailAddress, $comfirmEmail, $registerPassword, $confirmPassword);
 	if($registerSuccess){
+		$_SESSION['userLoggedIn']=$registerUserName;
 		header("Location: index.php");
 	}
 

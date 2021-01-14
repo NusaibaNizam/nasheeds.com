@@ -24,8 +24,9 @@
 		<form id="logInForm" action="register.php" method="POST">
 			<h2>Log In!</h2>
 			<p>
+				<?php echo $account->getError(Constants::$logInError);?>
 				<label for="logInUserName">User Name</label>
-				<input type="text" name="logInUserName" id="logInUserName" placeholder="e.g. Mark Zukabarg" required>
+				<input type="text" name="logInUserName" id="logInUserName" placeholder="e.g. Mark Zukabarg" value="<?php getValue('logInUserName')?>" required>
 			</p>
 			<p>
 				<label for="logInPassword">Password</label>
@@ -39,6 +40,7 @@
 			<h2>Sign Up!</h2>
 			<p>
 				<?php echo $account->getError(Constants::$userNameLengthError);?>
+				<?php echo $account->getError(Constants::$userNameExists);?>
 				<label for="registerUserName">User Name</label>
 				<input type="text" name="registerUserName" id="registerUserName" value="<?php getValue('registerUserName')?>" placeholder="e.g. Mark Zukabarg" required>
 			</p>
@@ -54,6 +56,7 @@
 			</p>
 			<p>
 				<?php echo $account->getError(Constants::$emailNotValidError);?>
+				<?php echo $account->getError(Constants::$emailExists);?>
 				<label for="emailAddress">Email Address</label>
 				<input type="email" name="emailAddress" id="emailAddress" value="<?php getValue('emailAddress')?>" placeholder="esomeone@example.com" required>
 			</p>

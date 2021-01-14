@@ -12,6 +12,18 @@
 			$this->con=$con;
 			$this->errorArray= array();
 		}
+		public function logIn($logInUserName, $logInPassword){
+			$logInPassword=md5($logInPassword);
+			$query=mysqli_query($this->con, "SELECT * FROM users WHERE username='".$logInUserName."' AND password='".$logInPassword."'");
+			if(mysqli_num_rows($query)==1){
+				return true;
+			}else{
+
+				array_push($this->errorArray, Constants::$logInError);		
+				return false;
+			}
+
+		}
 
 		public function register($registerUserName, $firstName, $lastName, $emailAddress, $comfirmEmail, $registerPassword, $confirmPassword)
 		{
@@ -21,8 +33,7 @@
 			$this->validateEmail($emailAddress,$comfirmEmail);
 			$this->validatePassword($registerPassword,$confirmPassword);
 			if(empty($this->errorArray)){
-				//TODO:Insert to database
-				return function insertToDatabase($registerUserName, $firstName, $lastName, $emailAddress, $registerPassword);
+				return $this->insertToDatabase($registerUserName, $firstName, $lastName, $emailAddress, $registerPassword);
 			}
 			else{
 				return false;
@@ -37,7 +48,10 @@
 		}
 		private function insertToDatabase($u, $f, $l, $e1, $p1){
 			$encriptedPassword=md5($p1);
-			$profilePic="";
+			$profilePic="assets/images/profile-pics/head_emerald.png";
+			$date=date("Y-m-d");
+			$result=mysqli_query($this->con, "INSERT INTO users VALUES ('', '".$u."' ,'".$f."' ,'".$l."' ,'".$e1."' ,'".$encriptedPassword."' ,'".$date."' ,'".$profilePic."' )");
+			return $result;
 
 		}
 
@@ -47,7 +61,12 @@
 				array_push($this->errorArray, Constants::$userNameLengthError);
 				return;
 			}
-			//TODO: check if User Name already exists
+			$checkIfUserExists=mysqli_query($this->con, "SELECT username FROM users WHERE username='".$u."'");
+			if(mysqli_num_rows($checkIfUserExists)!=0){
+				array_push($this->errorArray, Constants::$userNameExists);
+				return;
+			}
+
 		}
 
 		private function validateFirstName($f)
@@ -77,7 +96,11 @@
 				array_push($this->errorArray, Constants::$emailNotValidError);
 				return;	
 			}
-			//TODO: check if email already exists
+			$checkIfEmailExists=mysqli_query($this->con, "SELECT email FROM users WHERE email='".$e1."'");
+			if(mysqli_num_rows($checkIfEmailExists)!=0){
+				array_push($this->errorArray, Constants::$emailExists);
+				return;
+			}
 		}
 
 		private function validatePassword($p1,$p2)

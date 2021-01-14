@@ -6,5 +6,11 @@ if (isset($_POST['logIn'])) {
 	
 	$logInPassword=strip_tags($_POST['logInPassword']);
 
+	$logInSuccess=$account->logIn($logInUserName, $logInPassword);
+	if($logInSuccess){
+		$_SESSION['userLoggedIn']=$logInUserName;
+		header("Location: index.php");
+	}
+
 }
 ?>
