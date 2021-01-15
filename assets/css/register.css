@@ -1,0 +1,116 @@
+html {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+body{
+	padding: 0;
+	margin: 0;
+	background-image: url(../images/background1.jpg);
+	background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+#container *{
+	font-family: Verdana, sans-serif;
+	color: #fff;
+	box-sizing: border-box;
+    line-height: 1em;
+}
+#container {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    max-width: 1024px;
+    padding-top: 2.5  %
+}
+#inputFormDiv{
+	width:48%;
+	margin: 1% 0;
+	padding:0% 5%;
+	float:left;
+    border-right: solid #ffffff9e 2px;
+
+}
+#inputFormDiv h2{
+	margin-top: 5%;
+	text-align: center;
+}
+	
+form{
+	position: relative;
+}
+#inputFormDiv input[type="text"], #inputFormDiv input[type="password"], #inputFormDiv input[type="email"]{
+	display: block;
+	background: transparent;
+	border: 0px;
+	border-bottom: 1px solid white;
+	width: 100%;
+	color: white; 
+	line-height: 1.5em
+}
+::placeholder{
+	color: #f0f8ffe8;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	color: #f0f8ffe8;
+}
+::-moz-placeholder { /* Firefox 19+ */
+	color: #f0f8ffe8;
+}
+:-ms-input-placeholder { /* IE 10+ */
+	color: #f0f8ffe8;
+}
+:-moz-placeholder { /* Firefox 18- */
+	color: #f0f8ffe8;
+}
+label{
+	color: #b2b9b1 !important;
+	font-size:.8em !important;
+	margin-top: 8% !important;
+	display: block;
+}
+#inputFormDiv input[type="submit"]{
+	background: transparent;
+	border-color: white;
+	width: 100%;
+	border-radius: 250px;
+	display: block;
+	font-size: 1.2em;
+	letter-spacing: 1px;
+	margin: 0 auto;
+	padding: 3%;
+}
+#inputFormDiv input[type="submit"]:hover{
+	cursor: pointer;
+	font-weight: bold;
+	background: #ffffff4f;
+}
+.toggleSignUpSignin span{
+	font-size: .75em
+}
+.toggleSignUpSignin{
+	text-align: center;
+	margin: 10px
+}
+.toggleSignUpSignin span:hover{
+	cursor: pointer;
+	font-weight: bold;
+}
+#registerForm,#logInForm{
+	display: none;
+}
+#inputFormDiv input[type="text"]:-webkit-autofill, #inputFormDiv input[type="password"]:-webkit-autofill, #inputFormDiv input[type="email"]:-webkit-autofill,
+#inputFormDiv input[type="text"]:-webkit-autofill:hover, #inputFormDiv input[type="password"]:-webkit-autofill:hover, #inputFormDiv input[type="email"]:-webkit-autofill:hover, 
+#inputFormDiv input[type="text"]:-webkit-autofill:focus, #inputFormDiv input[type="password"]:-webkit-autofill:focus, #inputFormDiv input[type="email"]:-webkit-autofill:focus, 
+#inputFormDiv input[type="text"]:-webkit-autofill:active, #inputFormDiv input[type="password"]:-webkit-autofill:active, #inputFormDiv input[type="email"]:-webkit-autofill:active,
+#inputFormDiv input[type="text"]:-internal-autofill-previewed, #inputFormDiv input[type="password"]:-internal-autofill-previewed, #inputFormDiv input[type="email"]:-internal-autofill-previewed
+#inputFormDiv input[type="text"]:-internal-autofill-selected, #inputFormDiv input[type="password"]:-internal-autofill-selected, #inputFormDiv input[type="email"]:-internal-autofill-selected
+{
+    -webkit-box-shadow: 0 0 0 30px rgba(0, 0, 0, 0.45) inset !important;
+    background: transparent;
+}
+input:-webkit-autofill {
+    -webkit-text-fill-color: white !important;
+}

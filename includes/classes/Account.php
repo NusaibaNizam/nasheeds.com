@@ -48,7 +48,7 @@
 		}
 		private function insertToDatabase($u, $f, $l, $e1, $p1){
 			$encriptedPassword=md5($p1);
-			$profilePic="assets/images/profile-pics/head_emerald.png";
+			$profilePic="assets/images/profile-pics/terquish.png";
 			$date=date("Y-m-d");
 			$result=mysqli_query($this->con, "INSERT INTO users VALUES ('', '".$u."' ,'".$f."' ,'".$l."' ,'".$e1."' ,'".$encriptedPassword."' ,'".$date."' ,'".$profilePic."' )");
 			return $result;
