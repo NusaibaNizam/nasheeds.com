@@ -114,3 +114,31 @@ label{
 input:-webkit-autofill {
     -webkit-text-fill-color: white !important;
 }
+.logInText{
+	width:48%;
+	margin: 1% 0;
+	padding:0% 5%;
+	float:left;
+}
+.logInText h1{
+	font-weight: bold;
+	color: #00ffc5 !important;
+	text-shadow:7px 7px 12px #000000;
+	font-size: 2.2em
+}
+.logInText h2{
+	margin: 2% 0;
+	font-weight: normal;
+	font-size: 1.45em !important;
+	text-shadow:7px 7px 12px #000000;
+}
+.logInText ul{
+	padding: 0;
+}
+.logInText ul li{
+	padding: 2.2% 7%;
+	font-size:.85em;
+	text-shadow:7px 7px 12px #000000;
+	list-style-type: none;
+	background: url(../images/icons/check.png) no-repeat;
+}
