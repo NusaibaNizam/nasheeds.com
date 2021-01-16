@@ -12,8 +12,11 @@
 <html>
 <head>
 	<title>Spotify Clone</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
-	Hurry!
+	<div id=nowPlayingContainer>
+		
+	</div>
 </body>
 </html>
