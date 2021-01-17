@@ -9,5 +9,11 @@ html,body{
 	bottom: 0;
 	position: fixed;
 	min-width: 620px;
-	height: 15.5%;/*change*/
+	/*height: 15.5%;*//*change*/
+}
+#nowPlaying{
+	display: flex;
+    box-sizing: border-box;
+    height: 90px;
+    padding: 1.5%;
 }

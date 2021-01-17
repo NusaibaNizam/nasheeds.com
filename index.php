@@ -16,7 +16,9 @@
 </head>
 <body>
 	<div id=nowPlayingContainer>
-		
+		<div id="nowPlaying">
+			
+		</div>
 	</div>
 </body>
 </html>
