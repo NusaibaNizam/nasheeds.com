@@ -17,7 +17,9 @@
 <body>
 	<div id=nowPlayingContainer>
 		<div id="nowPlaying">
-			
+			<div id="songDetails"></div>
+			<div id="controlPanel"></div>
+			<div id="volume"></div>
 		</div>
 	</div>
 </body>
