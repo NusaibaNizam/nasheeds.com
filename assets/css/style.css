@@ -27,3 +27,58 @@ html,body{
 	flex-direction: column;
 	align-items: center;
 }
+#controlPanel .content{
+	width: 100%
+}
+.controls .buttons{
+	display: table;
+	margin: 0 auto;
+}
+.controlButton{
+	background: transparent;
+	border: none;
+	vertical-align: middle;
+}
+.controlButton img{
+	width: 20px;
+	height: 20px;
+}
+.controlButton.play img, .controlButton.pause img{
+	
+	width: 32px;
+	height: 32px;	
+}
+.controlButton:hover {
+	cursor: pointer;
+}
+.progressTime{
+	color: #a0a0a0;
+	font-size: 11px;
+	min-width: 40px;
+	text-align: center;
+}
+.progressBar{
+	width: 100%;
+	display: inline-flex;
+	height: 12px;
+}
+.progressElementsContainer{
+	display: flex;
+}
+.progressBackground{
+	background: #404040;
+	width: 100%;
+}
+
+.progressBackground, .progress{
+	height: 4px;
+	border-radius: 5px;
+}
+.progress{
+		
+	background: #a0a0a0;
+	width: 0%;	
+}
+.progressElementsContainer .progressBar{
+	margin-top: 1%; 
+}

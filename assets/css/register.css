@@ -110,9 +110,14 @@ label{
 {
     -webkit-box-shadow: 0 0 0 30px rgba(0, 0, 0, 0.45) inset !important;
     background: transparent;
+    border: 1px white solid !important;
+    border-radius: 20px !important;
 }
 input:-webkit-autofill {
     -webkit-text-fill-color: white !important;
+    
+    border: 1px white solid !important;
+    border-radius: 20px !important;
 }
 .logInText{
 	width:48%;
