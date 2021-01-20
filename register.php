@@ -108,7 +108,7 @@
 			<h1>None but ourselves can free our minds</h1>
 			<h2>You're a song written by the hands of God</h2>
 			<ul>
-				<li>Discover songs, you'll fall in love with</li>
+				<li>Discover nasheeds, you'll fall in love with</li>
 				<li>Create you own playlist</li>
 				<li>Follow artists to keep up to date</li>
 			</ul>
