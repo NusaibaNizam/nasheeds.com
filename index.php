@@ -15,6 +15,26 @@
 					"</div>
 				</a>
 			</div>";
+			echo "<div class='gridItem'>
+				<a href='albums.php?id=".$row['id']."' >
+					<div class='gridImg'>
+					<img src='".$row['artworkPath']."'>
+					</div>
+					<div class='gridInfo'>"
+						.$row['title'].
+					"</div>
+				</a>
+			</div>";
+			echo "<div class='gridItem'>
+				<a href='albums.php?id=".$row['id']."' >
+					<div class='gridImg'>
+					<img src='".$row['artworkPath']."'>
+					</div>
+					<div class='gridInfo'>"
+						.$row['title'].
+					"</div>
+				</a>
+			</div>";
 			//echo $row['title']."<br>";
 		}
 	?>
