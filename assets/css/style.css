@@ -20,9 +20,10 @@ html,body{
 	width: 30%;
 	min-width:180px;
 }
-body{
+body, a{
 	color: #a0a0a0;
 	font-family: 'Alegreya', serif;
+	text-decoration: none;
 }
 #controlPanel{
 	width: 40%;
@@ -53,8 +54,21 @@ body{
 	width: 32px;
 	height: 32px;	
 }
+.controlButton.play, .controlButton.pause{
+	height: 36px;
+}
 .controlButton:hover {
 	cursor: pointer;
+}
+
+.controlButton.play img:hover, .controlButton.pause img:hover{
+	
+	width: 36px !important;
+	height: 36px !important;
+}
+.controlButton img:hover{
+	width: 24px;
+	height: 24px;
 }
 .progressTime{
 	font-size: 11px;
@@ -129,4 +143,53 @@ body{
 #topContainer{
 	min-height: 100%;
 	width: 100%
+}
+#topContainer #navigationContainer{
+	background: #0f0f0f;
+	height: 100vh;
+	width: 17%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+}
+.navbar{
+	margin: 0;
+	padding:5% 8% 0% 8%;
+	display:flex;
+	flex-direction: column;
+	-ms-flex-direction: column;
+}
+#logo img{
+	width: 100%;
+	margin-right: 2%;
+}
+.navGroup{
+	padding: 6% 0;
+	border-top: 1px solid #a0a0a0;
+}
+.navItem{
+	padding: 3%;
+	letter-spacing: 1px;
+	font-size: .85em
+}
+.navItem a{
+	color: #e0e0e0;
+	display: flex;
+}
+.icon{
+	margin: 0 5% 0 auto;
+	width: 10.5%;
+}
+.navItem:hover{
+	letter-spacing: 2px;
+	font-weight: bold;
+}
+.navItem:hover .icon{
+	width: 12%;
+}
+.navItem:hover .navItemLink{
+
+	color: #ffffff;
 }

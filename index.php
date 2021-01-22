@@ -21,10 +21,46 @@
 	<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-	<div class="mainContainer">
+	<div id="mainContainer">
 
-		<div class="topContainer">
-			
+		<div id="topContainer">
+
+			<div id="navigationContainer">
+				<nav class="navbar">
+
+					<a href="index.php" id="logo">
+						<img src="assets/images/icons/nasheed.png">
+					</a>
+
+					<div class="navGroup">
+						<div class="navItem">
+							<a href="search.php" class="navItemLink">Search
+								<img src="assets/images/icons/search.png" class="icon" alt="Search">
+							</a>
+						</div>
+					</div>
+
+
+					<div class="navGroup">
+						
+						<div class="navItem">
+							<a href="browse.php" class="navItemLink">Browse</a>
+						</div>
+
+						<div class="navItem">
+							<a href="yourSong.php" class="navItemLink">Your Song</a>
+						</div>
+
+						<div class="navItem">
+							<a href="profile.php" class="navItemLink">Asura</a>
+						</div>
+
+					</div>
+
+				</nav>
+				
+			</div>
+
 		</div>
 			
 		<div id=nowPlayingContainer>
@@ -91,6 +127,10 @@
 					<div class="volumeContainer">
 						<button class="controlButton volume" title="Mute">
 							<img src="assets/images/icons/volume.png" alt="Mute">
+						</button> 
+
+						<button class="controlButton unmute" title="Unmute">
+							<img src="assets/images/icons/volume-mute.png" alt="Unmute" style="display: none;">
 						</button> 
 
 						<div class="progressBar">
