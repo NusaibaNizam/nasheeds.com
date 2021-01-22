@@ -227,6 +227,7 @@ body, a{
 	margin-bottom: 1%;
 	transition: 1s;
 	opacity: 1;
+	margin-top: 1%;
 }
 .gridItem:hover{
 	opacity: .4;
@@ -234,6 +235,7 @@ body, a{
 	max-width:205px;
 	cursor:pointer;
 	margin-right: 2.5%;
+	margin-top: .5%
 }
 .gridItem:hover .gridInfo{
 	letter-spacing: 3px;
