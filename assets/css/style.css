@@ -2,6 +2,9 @@ html,body{
 	margin: 0;
 	padding: 0;
 	height: 100%;
+	background: #181818;
+	font-size: 	0.8750em;
+	min-width: 20px;
 }
 #nowPlayingContainer{
 	width: 100%;
@@ -21,7 +24,7 @@ html,body{
 	min-width:180px;
 }
 body, a{
-	color: #a0a0a0;
+	color: #e0e0e0;
 	font-family: 'Alegreya', serif;
 	text-decoration: none;
 }
@@ -141,16 +144,16 @@ body, a{
 	height: 100%
 }
 #topContainer{
-	min-height: 100%;
-	width: 100%
+	height: 100%;
+	width: 100%;
+	display: flex;
+	position: fixed;
 }
 #topContainer #navigationContainer{
 	background: #0f0f0f;
 	height: 100vh;
 	width: 17%;
-	position: fixed;
-	top: 0;
-	left: 0;
+	min-width: 200px;
 	margin: 0;
 	padding: 0;
 }
@@ -172,7 +175,7 @@ body, a{
 .navItem{
 	padding: 3%;
 	letter-spacing: 1px;
-	font-size: .85em
+	font-size: 1.05em
 }
 .navItem a{
 	color: #e0e0e0;
@@ -192,4 +195,72 @@ body, a{
 .navItem:hover .navItemLink{
 
 	color: #ffffff;
+}
+#mainContainer{
+	height: 100%
+}
+#mainViewContainer{
+	width: 83%;
+	max-width: calc(100% - 200px);
+	height: calc(100% - 90px);
+	overflow-y:auto;
+	overflow-x: hidden;
+}
+#mainContent{
+	width: 100%;
+	height: 100%;
+	padding: 1% 3%;
+	box-sizing: border-box;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.pageHeading{
+	padding: .25%;
+	text-align: center;
+}
+.gridItem{
+	display: inline-block;
+	margin-right: 3%;
+	width:29%;
+	max-width: 200px;
+	min-width: 150px;
+	margin-bottom: 1%;
+	transition: 1s;
+	opacity: 1;
+}
+.gridItem:hover{
+	opacity: .4;
+	width:29.5%;
+	max-width:205px;
+	cursor:pointer;
+	margin-right: 2.5%;
+}
+.gridItem:hover .gridInfo{
+	letter-spacing: 3px;
+	font-weight: bold;
+}
+.gridImg{
+	width: 100%;
+	position: relative;
+}
+.gridImg:after {
+	  content: "";
+	  display: block;
+	  padding-bottom: 100%;
+}
+.gridImg img{
+	position: absolute;
+  	width: 100%;
+  	height: 100%;
+	background-size:cover;
+}
+.gridInfo{
+	text-align: center;
+	text-overflow: ellipsis;
+	padding: 2% 0;
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: .89em;
+	letter-spacing: 2px;
+	transition: 1s;
 }
