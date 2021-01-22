@@ -153,7 +153,7 @@ body, a{
 	background: #0f0f0f;
 	height: 100vh;
 	width: 17%;
-	min-width: 200px;
+	min-width: 220px;
 	margin: 0;
 	padding: 0;
 }
@@ -201,7 +201,7 @@ body, a{
 }
 #mainViewContainer{
 	width: 83%;
-	max-width: calc(100% - 200px);
+	max-width: calc(100% - 220px);
 	height: calc(100% - 90px);
 	overflow-y:auto;
 	overflow-x: hidden;
@@ -221,9 +221,9 @@ body, a{
 .gridItem{
 	display: inline-block;
 	margin-right: 5%;
-	width:29%;
+	width:15%;
 	max-width: 200px;
-	min-width: 150px;
+	min-width: 120px;
 	margin-bottom: 1%;
 	transition: 1s;
 	opacity: 1;
@@ -231,7 +231,7 @@ body, a{
 }
 .gridItem:hover{
 	opacity: .4;
-	width:29.5%;
+	width:15.5%;
 	max-width:205px;
 	cursor:pointer;
 	margin-right: 4.5%;
