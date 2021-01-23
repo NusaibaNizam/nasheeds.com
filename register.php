@@ -105,12 +105,12 @@
 			</form>
 		</div>
 		<div class="logInText">
-			<h1>None but ourselves can free our minds</h1>
-			<h2>You're a song written by the hands of God</h2>
+			<h1>" None but ourselves can free our minds "</h1>
+			<h2>You're a song written by the Creator</h2>
 			<ul>
 				<li>Discover nasheeds, you'll fall in love with</li>
 				<li>Create you own playlist</li>
-				<li>Follow artists to keep up to date</li>
+				<li>Music free vocals only nasheeds</li>
 			</ul>
 		</div>
 	</div>

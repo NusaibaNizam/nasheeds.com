@@ -5,7 +5,7 @@
 	<?php
 		$albumQuery=mysqli_query($con,"SELECT * FROM albums ORDER BY rand() LIMIT 10");
 		while($row=mysqli_fetch_array($albumQuery)) {
-			echo "<div class='gridItem'>
+			echo "<div class='gridItem' title='Album: ".$row['title']."'>
 				<a href='albums.php?id=".$row['id']."' >
 					<div class='gridImg'>
 					<img src='".$row['artworkPath']."'>
