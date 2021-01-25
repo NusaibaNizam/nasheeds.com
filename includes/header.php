@@ -15,6 +15,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+</noscript>
 	<title>nasheeds.com</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	
@@ -23,8 +24,11 @@
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@300&display=swap" rel="stylesheet">
+	<link rel="stylesheet"
+  href="https://unpkg.com/simplebar@latest/dist/simplebar.css">
 </head>
 <body>
+
 	<div id="mainContainer">
 
 		<div id="topContainer">

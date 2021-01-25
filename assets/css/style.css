@@ -55,11 +55,13 @@ h2,h1{
 .controlButton img{
 	width: 20px;
 	height: 20px;
+	transition: .5s;
 }
 .controlButton.play img, .controlButton.pause img{
 	
 	width: 32px;
 	height: 32px;	
+	transition: .5s;
 }
 .controlButton.play, .controlButton.pause{
 	height: 36px;
@@ -207,26 +209,26 @@ h2,h1{
 	width: 83%;
 	max-width: calc(100% - 220px);
 	height: calc(100% - 90px);
-	overflow-y:auto;
-	overflow-x: hidden;
 }
 #mainContent{
 	width: 100%;
 	height: 100%;
 	padding: 0% 2%;
 	box-sizing: border-box;
-	overflow-x: hidden;
-	overflow-y: auto;
 }
 .pageHeading{
 	margin: .7em 0 .3em 0;
 	text-align: center;
 }
+.gridView{
+	width: 100%;
+	height: 100%;
+}
 .gridItem{
 	display: inline-block;
-	margin-right: 4%;
-	margin-left: 1%;
-	width:15%;
+	margin-right: 1%;
+	margin-left: 1.5%;
+	width:13.5%;
 	max-width: 180px;
 	min-width: 100px;
 	margin-bottom: 1%;
@@ -234,10 +236,10 @@ h2,h1{
 	margin-top: 1%;
 }
 .gridItem:hover{
-	width:15.5%;
+	width:14%;
 	max-width:185px;
-	margin-right: 3.75%;
-	margin-left: 0.75%;
+	margin-right: 0.75%;
+	margin-left: 1.25%;
 	margin-top: .5%
 }
 .gridItem:hover .gridImg{
@@ -277,7 +279,6 @@ h2,h1{
 .albumContainer{
 	width: 100%;
 	height: 100%;
-	overflow-y: auto;
 }
 .albumInfo{
 
@@ -288,12 +289,13 @@ h2,h1{
 	width: 100%;
 	max-height: 28vh;
 	box-sizing: border-box;
-	margin: 0 0 2% 0;
+	margin: 2vh 0 2vh 0;
 }
 .albumLeft{
 	width: 12%;
 	max-width: 230px;
-	padding: 2%  1.7% 0 0; 
+	margin: .2%;
+	padding: 0  0 0 0; 
 	background: #181818;
 }
 .albumLeft img{
@@ -304,22 +306,23 @@ h2,h1{
 
 .albumRight{
 	margin-right: 10%;
-	padding: 2% 50vw 0 0; 
+	padding: 0 0 0 0; 
 	background: #181818;
 }
 .albumRight h2{
-	margin-top: 9%;
+	margin: 9% .5em 0 .5em;
+
 }
 
 .albumRight p{
 	color: #939393;
-	margin: .5em 0;
+	margin: .5em  .7em;
 }
 .songListContainer{
-	margin-top:28vh;
-	padding: 0;
+	margin-top:30vh;
+	margin-bottom:2vh;
 	width: 100%;
-	overflow-y: auto;
+	height: calc(64vh - 90px);
 }
 .songList{
 	margin-left: 1%;
@@ -340,4 +343,8 @@ h2,h1{
 .songMoreDuration{
 	margin-left: auto;
 	margin-right: 15%;
+}
+.simplebar-scrollbar:before{
+  
+    background:  #404040 !important;
 }

@@ -34,7 +34,7 @@
 
 	</div>
 
-	<div class="songListContainer">
+	<div class="songListContainer" data-simplebar data-simplebar-auto-hide="false">
 		<ul class="songList">
 			
 			<?php

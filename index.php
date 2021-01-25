@@ -1,7 +1,7 @@
 <?php include("includes/header.php"); ?>
 
 <h1 class="pageHeading">Heart Touching Nasheed Albums</h1>
-<div class="gridView">
+<div class="gridView" data-simplebar data-simplebar-auto-hide="false">
 	<?php
 		$albumQuery=mysqli_query($con,"SELECT * FROM albums ORDER BY rand() LIMIT 10");
 		while($row=mysqli_fetch_array($albumQuery)) {
