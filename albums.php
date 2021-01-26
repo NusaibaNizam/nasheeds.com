@@ -34,8 +34,8 @@
 
 	</div>
 
-	<div class="songListContainer" data-simplebar data-simplebar-auto-hide="false">
-		<ul class="songList">
+	<div class="songListContainer">
+		<ul class="songList"  data-simplebar data-simplebar-auto-hide="false">
 			
 			<?php
 				$songIdArray=$album->getSongIds();
@@ -49,7 +49,7 @@
 
 						<div class='songNumberCon'>
 
-							<img src='assets/images/icons/play-white.png' style='display: none;'>
+							<img src='assets/images/icons/play-white.png' >
 							<span class='songNumber'>".$i.".</span>
 						</div>
 						<div class='songInfo'>
@@ -57,11 +57,13 @@
 							<p class='song'>".$songArtist."</p>
 						</div>
 
-						<div class='songMoreDuration'>
-
-							<img class='optionButton' src='assets/images/icons/more.png' style='display: none;'>
+						<div class='songMore'>
+							<img class='optionButton' src='assets/images/icons/more.png' >
+						</div>
+						<div class='songDuration'>
 							<span class='songDuration'>".$songDuration."</span>
 						</div>
+
 					</li>";
 					$i++;
 				}

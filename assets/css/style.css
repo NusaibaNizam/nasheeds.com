@@ -158,8 +158,8 @@ h2,h1{
 #topContainer #navigationContainer{
 	background: #0f0f0f;
 	height: 100vh;
-	width: 17%;
-	min-width: 220px;
+	width: 19vw;
+	min-width: 200px;
 	margin: 0;
 	padding: 0;
 }
@@ -181,15 +181,18 @@ h2,h1{
 .navItem{
 	padding: 3%;
 	letter-spacing: 1px;
-	font-size: 1.05em
+	font-size: 1.05em;
+	transition:1s;
+	height: 3vh
 }
 .navItem a{
 	color: #e0e0e0;
 	display: flex;
 }
 .icon{
-	margin: 0 5% 0 auto;
+	margin: 0% 5% 0% auto;
 	width: 10.5%;
+	transition: 1s;
 }
 .navItem:hover{
 	letter-spacing: 2px;
@@ -240,7 +243,7 @@ h2,h1{
 	max-width:185px;
 	margin-right: 0.75%;
 	margin-left: 1.25%;
-	margin-top: .5%
+	margin-top: .3%
 }
 .gridItem:hover .gridImg{
 	opacity: .6;
@@ -294,11 +297,14 @@ h2,h1{
 .albumLeft{
 	width: 12%;
 	max-width: 230px;
-	margin: .2%;
+	min-width: 100px;
+	margin: 0 .2%;
 	padding: 0  0 0 0; 
 	background: #181818;
 }
 .albumLeft img{
+	min-width: 100px;
+	min-height: 100px;
 	width: 100%;
 	height: 100%;
 	object-fit: contain;
@@ -320,31 +326,92 @@ h2,h1{
 }
 .songListContainer{
 	margin-top:30vh;
-	margin-bottom:2vh;
+	margin-bottom:1vh;
 	width: 100%;
-	height: calc(64vh - 90px);
+	height: calc(65vh - 90px);
 }
 .songList{
-	margin-left: 1%;
+	font-family: 'Spectral', serif !important;
+	list-style: none;
+	margin-left: 0%;
 	padding-left: 0;
+	height: 100%;
 }
 .songRow{
 	display: flex;
-	width: 100%;
+	width: 97%;
 	margin-left: 0;
-	height: 100px
+	height: 10.25vh;
+	padding: 2vh 1vw 2vh 1vw;
+	box-sizing: border-box;
+	cursor: default;
 }
 .songRow:hover .songNumberCon img{
-	display: block;
+	visibility: visible;
+}
+.songRow .songNumberCon span{
+	visibility: visible;
+}
+.songRow:hover .songNumberCon span{
+	visibility: hidden;
 }
 .songRow:hover{
-	cursor: pointer;
+	background: #282828;
 }
-.songMoreDuration{
-	margin-left: auto;
-	margin-right: 15%;
+.songInfo span{
+	font-weight: bold;
+	margin-left: 10px;
+}
+.songDuration span, .songRow p, .songNumberCon span{
+	color: #939393
+}
+.songDuration{
 }
 .simplebar-scrollbar:before{
   
     background:  #404040 !important;
 }
+.songRow .songNumberCon{
+	width: 3vw;
+	float: left;
+}
+.songNumberCon img{
+	width: 1.2vw;
+	visibility: hidden;
+	position: absolute;
+	cursor: pointer;
+}
+.songInfo{
+	width: 85%;
+}
+.songInfo p{
+	margin-top: .3em !important;
+	margin-bottom: .3em !important;
+	margin-left: .7vw;
+}
+.songRow .songMore{
+	height: 100%;
+	margin-left: auto;
+	display: inline-block;
+    vertical-align: middle;
+	width: .8vw;
+	margin-right: 1vw;
+	float: left;
+	text-align: right;
+}
+.songRow .optionButton{
+	width: 100%;
+	visibility: hidden;
+	cursor: pointer;
+
+}
+.songRow .songDuration{
+	height: 100%;
+	vertical-align: middle;
+	float: left;
+	margin-left: 1vw;
+}
+.songRow:hover .songMore .optionButton{
+	visibility: visible;
+}
+
