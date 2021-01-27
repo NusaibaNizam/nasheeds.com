@@ -1,3 +1,7 @@
+
+var currentPlayList=new Array();
+var audioElement;
+
 class Audio{
 	constructor(){
 		this.audio=document.createElement('audio');
