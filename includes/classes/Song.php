@@ -58,8 +58,5 @@
 
 			return new Artist($this->con, $this->albumId);
 		}
-		public function setLastPlayed(){
-			mysqli_query($this->con,"UPDATE songs SET lastPlayed='".date('Y-m-d H:i:s')."' WHERE id='".$this->id."'");
-		}	
 	}
 ?>

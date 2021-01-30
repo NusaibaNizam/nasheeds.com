@@ -6,19 +6,50 @@
 	}
 	$jsonArray=json_encode($resultArray);
 ?>
+
 <script type="text/javascript">
 	$(document).ready(function(){
 		currentPlayList=<?php echo $jsonArray;?>;
 		audioElement=new Audio();
 		setTrack(currentPlayList[0], currentPlayList, false);
 	});
-
-
 	function setTrack(id, playList, isPlayable){
+		audioElement.idS=id;
+		$.post("includes/handlers/ajax/getSongJson.php",{songTrackId:id},function(data){
 
+			var song=JSON.parse(data);
+			$(".trackInfo .trackName span").text(song.title);
+			
+			$.post("includes/handlers/ajax/getArtistJson.php",{artistId:song.artist},function(data){
+				var artistObj=JSON.parse(data);
+				$(".trackInfo .trackArtist span").text(artistObj.artist);
+			});
+			
+			$.post("includes/handlers/ajax/getAlbumJson.php",{albumId:song.album},function(data){
+				var albumObj=JSON.parse(data);
+				$(".album img").attr("src",albumObj.artworkPath);
+			});
+			
+			audioElement.track=song.path;
+		
+		});
+		if(isPlayable){
+			playSong();
+		}
+	}
+	function playSong(){
+		$(".controlButton.play").hide();
+		$(".controlButton.pause").show();
+
+
+		audioElement.play();
 	}
 
-
+	function pauseSong(){
+		$(".controlButton.pause").hide();
+		$(".controlButton.play").show();
+		audioElement.pause();
+	}
 </script>
 
 <div id=nowPlayingContainer>
@@ -27,17 +58,17 @@
 			<div class="content">
 
 				<span class="album">
-					<img src="https://cdn.hipwallpaper.com/m/85/82/E6N1e2.jpg">
+					<img src="">
 				</span>
 
 				<div class="trackInfo">
 
 					<div class="trackName">
-						<span>Subhan Allah</span>
+						<span></span>
 					</div>
 
 					<div class="trackArtist">
-						<span>Nusaiba Nizam</span>
+						<span></span>
 					</div>
 					
 				</div>
@@ -54,10 +85,10 @@
 					<button class="controlButton previous" title="Previous">
 						<img src="assets/images/icons/previous.png" alt="Previous">
 					</button>
-					<button class="controlButton play" title="Play">
+					<button class="controlButton play" title="Play" onclick="playSong()">
 						<img src="assets/images/icons/play.png" alt="Play">
 					</button>
-					<button class="controlButton pause" title="Pause" style="display: none;">
+					<button class="controlButton pause" title="Pause" style="display: none;" onclick="pauseSong()">
 						<img src="assets/images/icons/pause.png" alt="Pause">
 					</button>
 					<button class="controlButton next" title="Next">

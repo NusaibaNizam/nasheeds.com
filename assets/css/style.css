@@ -120,8 +120,8 @@ h2,h1{
 	cursor: pointer;
 }
 .album img{
-	height: 100%;
-	max-width: 57px;
+	height: 57px;
+	width: 57px;
 	background-size: cover;
 	margin-right: 1%;
 	float: left;	
@@ -130,16 +130,25 @@ h2,h1{
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	height: 100%
+	height: 100%;
+	justify-content: center;
 }
 .trackInfo .trackName span{
 	color: #e0e0e0;
-	margin: .35% 0;
-	flex: 5;
+	margin: auto 0;
 }
 .trackInfo .trackArtist span{
-	font-size: .75em;
-	flex: 1;
+	font-size: .8em;
+	margin: auto 0;
+
+}
+.trackInfo .trackName{
+	vertical-align: middle;
+	height: 35%
+}
+.trackInfo .trackArtist{
+	vertical-align: middle;
+	height: 65%
 }
 #volume .volumeContainer{
 	margin-left: auto;

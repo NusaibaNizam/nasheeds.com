@@ -32,7 +32,7 @@
 	
 	<div id="mainContainer">
 
-		<div id="topContainer">
+		<div id="topContainer" >
 
 			<?php include("includes/navigationContainer.php"); ?>
 			<div id="mainViewContainer">
