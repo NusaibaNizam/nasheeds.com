@@ -1,5 +1,5 @@
 <?php
-	$songQuery=mysqli_query($con, "SELECT id FROM songs ORDER BY lastPlayed DESC, plays DESC LIMIT 10");
+	$songQuery=mysqli_query($con, "SELECT id FROM (SELECT * FROM songs ORDER BY lastPlayed DESC LIMIT 100) AS new ORDER BY plays DESC LIMIT 10");
 	$resultArray=array();
 	while ($row=mysqli_fetch_array($songQuery)) {
 		array_push($resultArray, $row['id']);
@@ -12,8 +12,74 @@
 		currentPlayList=<?php echo $jsonArray;?>;
 		audioElement=new Audio();
 		setTrack(currentPlayList[0], currentPlayList, false);
+
+		updateVolumeProgressbar(audioElement.audio);
+
+		$(".progressElementsContainer .progressBar").mousedown(function(){
+			mouseDown=true;
+		});
+
+		$(".progressElementsContainer .progressBar").mousemove(function(e){
+			if(mouseDown){
+				if(!audioElement.audio.paused){
+					pauseSong();
+					audioElement.mPause=true;	
+				}
+				timeFromOffset(e, this);
+			}
+		});
+
+		$(".progressElementsContainer .progressBar").mouseup(function(e){
+			timeFromOffset(e, this);
+			if(audioElement.manualPause){
+				playSong();
+				audioElement.mPause=false;	
+			}
+		});
+
+
+
+		$(".volumeContainer .progressBar").mousedown(function(){
+			mouseDown=true;
+		});
+
+		$(".volumeContainer .progressBar").mousemove(function(e){
+			if(mouseDown){
+				
+				var volPercentage=e.offsetX/$(this).width();
+				if(volPercentage>0 && volPercentage<1){
+
+					audioElement.audio.volume=volPercentage;	
+				}
+			}
+		});
+
+		$(".volumeContainer .progressBar").mouseup(function(e){
+			
+				var volPercentage=e.offsetX/$(this).width();
+				if(volPercentage>0 && volPercentage<1){
+
+					audioElement.audio.volume=volPercentage;	
+				}
+		});
+
+		$(document).mouseup(function(){
+			mouseDown=false;
+		});
+
 	});
+
+
+	function timeFromOffset(mouse, progressBar){
+		var progressToBeSetPercentage=(mouse.offsetX/$(progressBar).width())*100;
+		var progressToBeSetValue=audioElement.audio.duration*(progressToBeSetPercentage/100);
+		audioElement.setTime(progressToBeSetValue);
+	}
+
+
 	function setTrack(id, playList, isPlayable){
+		
+		audioElement.mPause=false;
 		audioElement.idS=id;
 		$.post("includes/handlers/ajax/getSongJson.php",{songTrackId:id},function(data){
 
