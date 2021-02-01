@@ -9,11 +9,14 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		currentPlayList=<?php echo $jsonArray;?>;
-		audioElement=new Audio();
-		setTrack(currentPlayList[0], currentPlayList, false);
+		var playList=<?php echo $jsonArray;?>;
+		setTrack(playList[0], playList, false);
 
 		updateVolumeProgressbar(audioElement.audio);
+
+		$("#nowPlayingContainer").on("mousedown touchstart mousemove touchmove", function(e){
+			e.preventDefault();
+		});
 
 		$(".progressElementsContainer .progressBar").mousedown(function(){
 			mouseDown=true;
@@ -69,6 +72,80 @@
 
 	});
 
+	function repeat(){
+		rept=!rept;
+		var imageName=rept?"repeat-active.png":"repeat.png";
+		var titleName=rept?"Stop Repeat":"Repeat";
+		$(".controlButton.repeat img").attr("src","assets/images/icons/"+imageName);
+		$(".controlButton.repeat").attr("title", titleName);
+			
+	}
+
+	function setMute(){
+		audioElement.audio.muted=!audioElement.audio.muted;
+		var imageName=audioElement.audio.muted?"volume-mute.png":"volume.png";
+		var titleName=audioElement.audio.muted?"Unmute":"Mute";
+		$(".controlButton.volume img").attr("src","assets/images/icons/"+imageName);
+		$(".controlButton.volume").attr("title", titleName);
+	}
+
+	function setShuffle(){
+		shuffle=!shuffle;
+		var imageName=shuffle?"shuffle-active.png":"shuffle.png";
+		var titleName=shuffle?"Don't Shuffle":"Shuffle";
+		$(".controlButton.shuffle img").attr("src","assets/images/icons/"+imageName);
+		$(".controlButton.shuffle").attr("title", titleName);
+		if(shuffle){
+			shuffleArray(shufflePlayList);
+			currentIndex=shufflePlayList.indexOf(audioElement.id);
+		}else{
+
+			currentIndex=currentPlayList.indexOf(audioElement.id);
+		}
+	}
+
+
+	function shuffleArray(a) {
+	    var j, x, i;
+	    for (i = a.length; i; i--) {
+	        j = Math.floor(Math.random() * i);
+	        x = a[i - 1];
+	        a[i - 1] = a[j];
+	        a[j] = x;
+	    }
+	}
+
+	function previousTrack(){
+		if(audioElement.audio.currentTime>=3 ||currentIndex==0){
+			audioElement.setTime(0);
+			playSong();
+		}else{
+			currentIndex=currentIndex-1;
+			if(!audioElement.audio.paused){
+				setTrack(currentPlayList[currentIndex], currentPlayList, true);
+			}else{
+				setTrack(currentPlayList[currentIndex], currentPlayList, false);
+			}
+		}
+	}
+	function nextTrack(auto){
+		if(rept){
+			audioElement.setTime(0); 
+			playSong();
+			return;
+		}
+		if(currentIndex==currentPlayList.length-1){
+			currentIndex=0;
+		}else{
+			currentIndex++;
+		}
+		var trackToPlay= shuffle?shufflePlayList[currentIndex]:currentPlayList[currentIndex];
+		if(!audioElement.audio.paused||auto){
+			setTrack(trackToPlay, currentPlayList, true);
+		}else{
+			setTrack(trackToPlay, currentPlayList, false);
+		}
+	}
 
 	function timeFromOffset(mouse, progressBar){
 		var progressToBeSetPercentage=(mouse.offsetX/$(progressBar).width())*100;
@@ -78,11 +155,25 @@
 
 
 	function setTrack(id, playList, isPlayable){
-		
-		audioElement.mPause=false;
+		if(playList!=currentPlayList){
+			currentPlayList=playList;
+			shufflePlayList=currentPlayList.slice();
+			shuffleArray(shufflePlayList);
+		}
+
+		if(shuffle){
+			currentIndex=shufflePlayList.indexOf(id);
+		}else{
+			currentIndex=currentPlayList.indexOf(id);
+		}
+
+
+		if(audioElement){
+			pauseSong();	
+		}
+		audioElement=new Audio();
 		audioElement.idS=id;
 		$.post("includes/handlers/ajax/getSongJson.php",{songTrackId:id},function(data){
-
 			var song=JSON.parse(data);
 			$(".trackInfo .trackName span").text(song.title);
 			
@@ -100,6 +191,8 @@
 		
 		});
 		if(isPlayable){
+
+			audioElement.mPause=true;
 			playSong();
 		}
 	}
@@ -107,8 +200,10 @@
 		$(".controlButton.play").hide();
 		$(".controlButton.pause").show();
 
-
+		
 		audioElement.play();
+
+		audioElement.mPause=false;
 	}
 
 	function pauseSong(){
@@ -145,11 +240,11 @@
 		<div id="controlPanel">
 			<div class="content controls">
 				<div class="buttons">
-					<button class="controlButton shuffle" title="Shuffle">
+					<button class="controlButton shuffle" title="Shuffle" onclick="setShuffle()">
 						<img src="assets/images/icons/shuffle.png" alt="Shuffle">
 					</button>
 					<button class="controlButton previous" title="Previous">
-						<img src="assets/images/icons/previous.png" alt="Previous">
+						<img src="assets/images/icons/previous.png" alt="Previous" onclick="previousTrack()">
 					</button>
 					<button class="controlButton play" title="Play" onclick="playSong()">
 						<img src="assets/images/icons/play.png" alt="Play">
@@ -157,10 +252,10 @@
 					<button class="controlButton pause" title="Pause" style="display: none;" onclick="pauseSong()">
 						<img src="assets/images/icons/pause.png" alt="Pause">
 					</button>
-					<button class="controlButton next" title="Next">
+					<button class="controlButton next" title="Next" onclick="nextTrack(false)">
 						<img src="assets/images/icons/next.png" alt="Next">
 					</button>
-					<button class="controlButton repeat" title="Repeat">
+					<button class="controlButton repeat" title="Repeat" onclick="repeat()">
 						<img src="assets/images/icons/repeat.png" alt="Repeat">
 					</button>
 				</div>
@@ -180,12 +275,8 @@
 		<div id=volume>
 				
 			<div class="volumeContainer">
-				<button class="controlButton volume" title="Mute">
+				<button class="controlButton volume" title="Mute" onclick="setMute()">
 					<img src="assets/images/icons/volume.png" alt="Mute">
-				</button> 
-
-				<button class="controlButton unmute" title="Unmute">
-					<img src="assets/images/icons/volume-mute.png" alt="Unmute" style="display: none;">
 				</button> 
 
 				<div class="progressBar">

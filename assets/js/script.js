@@ -1,7 +1,12 @@
 
 var currentPlayList=[];
+var shufflePlayList=[];
 var audioElement;
 var mouseDown=false;
+var currentIndex=0;
+var rept=false;
+var shuffle=false;
+
 function formatTime(sec){
 	secRound=Math.round(sec);
 	var secAfter=secRound%60;
@@ -30,12 +35,6 @@ function formatTime(sec){
 function updateTimeProgressbar(audio){
 	$(".progressTime.current").text(formatTime(audio.currentTime));
 	$(".progressTime.remaining").text(formatTime(audio.duration-audio.currentTime));
-	if(progress==100){
-		audio.pause();
-		progress=0;
-		$(".controlButton.pause").hide();
-		$(".controlButton.play").show();
-	}
 
 	var progress=(audio.currentTime/audio.duration)*100;
 	$(".progressElementsContainer .progress").css("width",progress+"%");
@@ -50,6 +49,7 @@ class Audio{
 
 	constructor(){
 		this.audio=document.createElement('audio');
+
 		this.addEvent();
 	}
 	set track(src){
@@ -63,6 +63,7 @@ class Audio{
 			$.post("includes/handlers/ajax/updateSongPopularity.php",{songId:this.id});	
 		}
 		
+		//this.audio.load();
 		this.audio.play();
 	}
 
@@ -73,7 +74,7 @@ class Audio{
 	addEvent(){
 		this.audio.addEventListener("canplay" ,function(){
 			$(".progressTime.remaining").text(formatTime(this.duration));
-			
+
 		});
 
 		this.audio.addEventListener("timeupdate" ,function(){
@@ -84,7 +85,11 @@ class Audio{
 		this.audio.addEventListener("volumechange", function(){
 			updateVolumeProgressbar(this);
 		})
-		
+
+		this.audio.addEventListener("ended", function(){
+
+			nextTrack(true);
+		});
 	}
 	setTime(sec){
 		this.audio.currentTime=sec;
