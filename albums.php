@@ -49,7 +49,7 @@
 
 						<div class='songNumberCon'>
 
-							<img src='assets/images/icons/play-white.png' >
+							<img src='assets/images/icons/play-white.png' onclick='setTrack(".$songId.",tempPlayList, true)'>
 							<span class='songNumber'>".$i.".</span>
 						</div>
 						<div class='songInfo'>
@@ -68,6 +68,11 @@
 					$i++;
 				}
 			?>
+
+			<script type="text/javascript">
+				var tempSongIds='<?php echo json_encode($songIdArray); ?>';
+				tempPlayList=JSON.parse(tempSongIds);
+			</script>
 
 		</ul>
 	</div>

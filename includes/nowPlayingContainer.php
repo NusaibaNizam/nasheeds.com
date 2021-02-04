@@ -138,6 +138,7 @@
 			currentIndex=0;
 		}else{
 			currentIndex++;
+
 		}
 		var trackToPlay= shuffle?shufflePlayList[currentIndex]:currentPlayList[currentIndex];
 		if(!audioElement.audio.paused||auto){
@@ -155,6 +156,7 @@
 
 
 	function setTrack(id, playList, isPlayable){
+		id=id.toString();
 		if(playList!=currentPlayList){
 			currentPlayList=playList;
 			shufflePlayList=currentPlayList.slice();
