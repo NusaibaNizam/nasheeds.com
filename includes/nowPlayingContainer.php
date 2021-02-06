@@ -92,7 +92,7 @@
 	function setShuffle(){
 		shuffle=!shuffle;
 		var imageName=shuffle?"shuffle-active.png":"shuffle.png";
-		var titleName=shuffle?"Don't Shuffle":"Shuffle";
+		var titleName=shuffle?"Stop Shuffle":"Shuffle";
 		$(".controlButton.shuffle img").attr("src","assets/images/icons/"+imageName);
 		$(".controlButton.shuffle").attr("title", titleName);
 		if(shuffle){
@@ -121,10 +121,11 @@
 			playSong();
 		}else{
 			currentIndex=currentIndex-1;
+			var trackToPlay= shuffle?shufflePlayList[currentIndex]:currentPlayList[currentIndex];
 			if(!audioElement.audio.paused){
-				setTrack(currentPlayList[currentIndex], currentPlayList, true);
+				setTrack(trackToPlay, currentPlayList, true);
 			}else{
-				setTrack(currentPlayList[currentIndex], currentPlayList, false);
+				setTrack(trackToPlay, currentPlayList, false);
 			}
 		}
 	}

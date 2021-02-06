@@ -426,3 +426,6 @@ h2,h1{
 .volumeContainer .progress{
 	width: 100%;
 }
+a:hover{
+	cursor: pointer;
+}

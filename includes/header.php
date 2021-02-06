@@ -7,6 +7,7 @@
 
 	if(isset($_SESSION['userLoggedIn'])){
 		$sessionUser=$_SESSION['userLoggedIn'];
+		echo "<script>userLoggedIn='$sessionUser';</script>";
 	}
 	else{
 		header("Location: register.php");
@@ -15,7 +16,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-</noscript>
 	<title>nasheeds.com</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	

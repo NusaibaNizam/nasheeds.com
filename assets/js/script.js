@@ -7,7 +7,22 @@ var mouseDown=false;
 var currentIndex=0;
 var rept=false;
 var shuffle=false;
+var userLoggedIn;
+function changePageTo(url){
 
+	$("#mainContent").hide();
+	var encodedUrl;
+	if(url.indexOf("?")==-1){
+		encodedUrl=encodeURI(url+"?userLoggedIn="+userLoggedIn);
+	}else{
+		encodedUrl=encodeURI(url+"&userLoggedIn="+userLoggedIn);
+	}
+	$("#mainContent").load(encodedUrl,function(){
+		$("#mainContent").show();
+	});
+	$("body").scrollTop(0);
+	history.pushState(null, null, url);
+}
 function formatTime(sec){
 	secRound=Math.round(sec);
 	var secAfter=secRound%60;

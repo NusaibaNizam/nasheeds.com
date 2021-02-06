@@ -1,4 +1,5 @@
-<?php include("includes/header.php"); 
+<?php 
+include("includes/includedFiles.php"); 
 	if(isset($_GET['id'])){
 		$albmId= $_GET['id'];
 	}else{
@@ -77,4 +78,3 @@
 		</ul>
 	</div>
 </div>
-<?php include("includes/footer.php"); ?>
