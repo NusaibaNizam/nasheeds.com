@@ -25,7 +25,7 @@
 			</div>
 
 			<div class="navItem">
-				<a onclick="changePageTo('profile.php')" class="navItemLink">Asura</a>
+				<a onclick="changePageTo('profile.php')" class="navItemLink"><?php echo $sessionUser;?></a>
 			</div>
 
 		</div>

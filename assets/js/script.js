@@ -8,6 +8,9 @@ var currentIndex=0;
 var rept=false;
 var shuffle=false;
 var userLoggedIn;
+function playFirstSong(){
+	setTrack(tempPlayList[0],tempPlayList,true);
+}
 function changePageTo(url){
 
 	$("#mainContent").hide();

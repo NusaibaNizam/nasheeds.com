@@ -15,7 +15,7 @@ include("includes/includedFiles.php");
 ?>
 <div class="albumContainer">
 
-	<div class="albumInfo">
+	<div class="entityInfo">
 
 		<div class="albumLeft">
 			<img src=<?php echo $artwrokPath; ?>>

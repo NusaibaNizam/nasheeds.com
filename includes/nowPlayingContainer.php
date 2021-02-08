@@ -183,11 +183,14 @@
 			$.post("includes/handlers/ajax/getArtistJson.php",{artistId:song.artist},function(data){
 				var artistObj=JSON.parse(data);
 				$(".trackInfo .trackArtist span").text(artistObj.artist);
+				$(".trackInfo .trackArtist span").attr("onclick","changePageTo('artist.php?id="+artistObj.id+"')");
 			});
 			
 			$.post("includes/handlers/ajax/getAlbumJson.php",{albumId:song.album},function(data){
 				var albumObj=JSON.parse(data);
 				$(".album img").attr("src",albumObj.artworkPath);
+				$(".album img").attr("onclick","changePageTo('albums.php?id="+albumObj.id+"')");
+				$(".trackInfo .trackName span").attr("onclick","changePageTo('albums.php?id="+albumObj.id+"')");
 			});
 			
 			audioElement.track=song.path;
