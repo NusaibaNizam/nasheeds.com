@@ -158,6 +158,9 @@
 
 	function setTrack(id, playList, isPlayable){
 		id=id.toString();
+		if(!(typeof playList[0] === 'string' || playList[0] instanceof String)){
+			id=parseInt(id, 10);
+		}
 		if(playList!=currentPlayList){
 			currentPlayList=playList;
 			shufflePlayList=currentPlayList.slice();

@@ -28,7 +28,7 @@ body, a{
 	font-family: 'Alegreya', serif;
 	text-decoration: none;
 }
-h2,h1{
+h2,h1,h3,h4{
 
 	font-family: 'Spectral', serif !important;
 }
@@ -233,7 +233,7 @@ h2,h1{
 	text-align: center;
 }
 .gridView{
-	width: 100%;
+	min-width: 100%;
 	min-height: 13.5%;
 }
 .gridItem{
@@ -438,8 +438,8 @@ a:hover{
 }
 .artInfo{
 	width: 100%;
-	margin-top: 1.5%;
-	margin-bottom: 5%;
+	margin-top: 0%;
+	margin-bottom: 0%;
 }
 .ceterSec{
 	margin: 0 auto;
@@ -461,7 +461,7 @@ a:hover{
 	border-color: #00ffcc !important;
 	color: #0f0f0f !important;
 	font-weight: 900 !important;
-	margin-top: 1.5%;
+	margin-top: 0.1%;
 	transition: .8s;
 }
 .artistInfo .headerButton .button:hover{
@@ -471,16 +471,7 @@ a:hover{
 	min-width: 11.5%;
 	color: #3f3f3f !important;
 }
-.songListContainer.borderBottom{
-	margin-top: 1% !important;
-	padding-bottom: 1%;
 
-}
-
-.songListContainer.borderBottom .center{
-	width: 100%;
-	text-align: center;
-}
 .borderBottom{
 	border-bottom: 1px #939393 solid;
 }
@@ -496,10 +487,66 @@ a:hover{
   
     background:  #848484 !important;
 }
-.gridView h2{
+.grid h2, .songListContainer h2,.searchOutput h2{
 	text-align: center;
+	margin-top:.1%;
+	margin-bottom: .1%;
+}
+.searchOutput .noSong{
+	text-align: center;	
 }
 .button:focus {
   outline: none;
   box-shadow: none;
+}
+.songListContainer.art{
+	max-height: calc(45vh - 90px);
+	margin-top: 0% !important;
+	padding-bottom: 0%;
+}
+.songListContainer.art .songList{
+	max-height: calc(43vh - 90px);
+}
+.grid.borderBottom{
+	height: 37%;
+}
+
+.grid.borderBottom .gridView{
+	height: 85%;
+}
+.grid.borderBottom .gridView .gridItem{
+	height: 85%;
+}
+.searchContainer{
+	background-color: #242424;
+	color: white;
+	padding: 1%;
+	border-radius: 255px;
+}
+.searchInput{
+	width: 100%;
+	font-size: 1.7em;
+	font-weight: bold;
+	background: #242424;
+	border: none;
+	color: white;
+	letter-spacing: 1.5px;
+}
+.searchHeader{
+	font-weight: 100;
+	margin-left:1.5%;
+	margin-top: 4px;
+	margin-bottom: 3px;
+}
+input:focus{
+	outline: none;
+}
+.searchOutput{
+	height: calc(100% - 90px);
+}
+.searchOutput .songListContainer.art{
+	max-height: 30% !important;
+}
+.searchOutput .songListContainer.art .songList{
+	max-height: 100% !important;
 }
