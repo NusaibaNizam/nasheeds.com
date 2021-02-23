@@ -47,6 +47,10 @@
 	            			$(".searchOutputArtist").html("<h2>Artists</h2><p class='noResuslt'>No Artists Found That match '"+val+"'..</>");
 	            		}
 					});		
+				}else{
+
+					$(".searchOutputSong").html('');
+					$(".searchOutputArtist").html('');
 				}
 			},500);
 		});

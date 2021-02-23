@@ -559,16 +559,16 @@ input:focus{
 	max-height: 30% !important;
 }
 .searchOutput .songListContainer.art .songList{
-	margin-top: 0  !important;
-	margin-bottom: 0  !important; 
+	padding-top: 0  !important;
+	padding-bottom: 0  !important; 
 }
 .searchOutput .songListContainer.art .songList{
 	max-height: 100% !important;
 }
 
 .searchOutputArtist{
-	margin-top: 5%;
-	max-height: 20%;
+	margin-top: 4.3vh;
+	max-height:  15% !important;
 }
 
 .artistRow .point:hover{
@@ -578,9 +578,10 @@ input:focus{
 	margin-top: 0  !important;
 	margin-bottom: 0  !important;
 	list-style: none;
+	margin-right: 2vw;
 }
 .artistRow{
-    padding: .3% 3%;
+    padding: .3vh 1.5vw;
 	color: #e0e0e0;
 }
 .artistRow:hover{
@@ -589,7 +590,7 @@ input:focus{
 .searchOutput .artistContainer{
 	margin-top: 0  !important;
 	margin-bottom: 0  !important; 
-	max-height: 13.9% !important;
+	max-height: 9.3vh !important;
 }
 .searchOutput .artistContainer .artistList{
 	max-height: 100% !important;
