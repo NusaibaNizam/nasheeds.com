@@ -54,5 +54,10 @@
 
 			return $array;
 		}
+
+		public function getArtistId(){
+
+			return $this->artistId;
+		}
 	}
 ?>

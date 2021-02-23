@@ -23,7 +23,7 @@ include("includes/includedFiles.php");
 
 		<div class="albumRight">
 			<h2><?php echo $title; ?></h2>
-			<p><?php echo $artist; ?></p>
+			<p class="point" onclick="changePageTo('<?php echo "artist.php?id=".$album->getArtistId().""; ?>')"><?php echo $artist; ?></p>
 			<p><?php 
 				if ($numSongs>1) {
 					echo $numSongs." Songs";

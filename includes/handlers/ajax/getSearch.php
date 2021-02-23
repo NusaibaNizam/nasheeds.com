@@ -1,8 +1,8 @@
 <?php
 
 	include("../../config.php");
-	if(isset($_POST['term'])){
-		$term=$_POST['term'];
+	if(isset($_POST['songQ'])){
+		$term=$_POST['songQ'];
 		$songQuery=mysqli_query($con,"SELECT * FROM (SELECT * FROM songs WHERE title LIKE '%$term%' ORDER BY lastPlayed DESC) AS new ORDER BY plays DESC");
 		$resultSongArray =array();
 		while ($row=mysqli_fetch_array($songQuery)) {
@@ -20,4 +20,15 @@
 		echo $jsonSongArray;
 	}
 
+	if(isset($_POST['atristQ'])){
+		$term=$_POST['atristQ'];
+		$artsitQuery=mysqli_query($con,"SELECT * FROM artists WHERE artist LIKE '%$term%' ORDER BY artist ASC");
+		$resultArtsitArray =array();
+		while ($row=mysqli_fetch_array($artsitQuery)) {
+			array_push($resultArtsitArray, $row);
+		};
+		$jsonArtsitArray=json_encode($resultArtsitArray);	
+
+		echo $jsonArtsitArray;
+	}
 ?>

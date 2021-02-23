@@ -328,6 +328,12 @@ h2,h1,h3,h4{
 	margin: 9% .5em 0 .5em;
 
 }
+.albumRight:hover{
+	cursor: default;
+}
+.albumRight .point:hover{
+	cursor: pointer !important;
+}
 
 .albumRight p{
 	color: #939393;
@@ -492,7 +498,7 @@ a:hover{
 	margin-top:.1%;
 	margin-bottom: .1%;
 }
-.searchOutput .noSong{
+.searchOutput .noResuslt{
 	text-align: center;	
 }
 .button:focus {
@@ -544,9 +550,47 @@ input:focus{
 .searchOutput{
 	height: calc(100% - 90px);
 }
+.searchOutputSong{
+	max-height: 30% !important;
+}
 .searchOutput .songListContainer.art{
+	margin-top: 0  !important;
+	margin-bottom: 0  !important; 
 	max-height: 30% !important;
 }
 .searchOutput .songListContainer.art .songList{
+	margin-top: 0  !important;
+	margin-bottom: 0  !important; 
+}
+.searchOutput .songListContainer.art .songList{
+	max-height: 100% !important;
+}
+
+.searchOutputArtist{
+	margin-top: 5%;
+	max-height: 20%;
+}
+
+.artistRow .point:hover{
+	cursor: pointer !important;
+}
+.artistList{
+	margin-top: 0  !important;
+	margin-bottom: 0  !important;
+	list-style: none;
+}
+.artistRow{
+    padding: .3% 3%;
+	color: #e0e0e0;
+}
+.artistRow:hover{
+	background-color: #282828
+}
+.searchOutput .artistContainer{
+	margin-top: 0  !important;
+	margin-bottom: 0  !important; 
+	max-height: 13.9% !important;
+}
+.searchOutput .artistContainer .artistList{
 	max-height: 100% !important;
 }
