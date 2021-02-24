@@ -31,4 +31,16 @@
 
 		echo $jsonArtsitArray;
 	}
+
+	if(isset($_POST['albumQ'])){
+		$term=$_POST['albumQ'];
+		$albumQuery=mysqli_query($con,"SELECT * FROM albums WHERE title LIKE '%$term%' ORDER BY title ASC");
+		$resultAlbumArray =array();
+		while ($row=mysqli_fetch_array($albumQuery)) {
+			array_push($resultAlbumArray, $row);
+		};
+		$jsonAlbumArray=json_encode($resultAlbumArray);	
+
+		echo $jsonAlbumArray;
+	}
 ?>

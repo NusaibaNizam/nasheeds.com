@@ -87,6 +87,7 @@ label{
 	cursor: pointer;
 	font-weight: bold;
 	background: #ffffff4f;
+	outline: none;
 }
 .toggleSignUpSignin span{
 	font-size: .75em;

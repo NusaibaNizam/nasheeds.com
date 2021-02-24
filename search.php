@@ -27,10 +27,10 @@
 
 		            		$.each(song,function(key, item) {
 		            		var index=key+1;
-		            		$(".songList").append("<li class='songRow'><div class='songNumberCon'><img src='assets/images/icons/play-white.png' onclick='setTrack("+item.id+",["+tempPlayLis+"], true)'><span class='songNumber'>"+index+".</span></div><div class='songInfo'><span class='songTitle'>"+item.title+"</span><p class='song'>"+item.artist+"</p></div><div class='songMore'><img class='optionButton' src='assets/images/icons/more.png' ></div><div class='songDuration'><span class='songDuration'>"+item.duration+"</span></div></li>");
+		            		$(".searchOutputSong .songList").append("<li class='songRow'><div class='songNumberCon'><img src='assets/images/icons/play-white.png' onclick='setTrack("+item.id+",["+tempPlayLis+"], true)'><span class='songNumber'>"+index+".</span></div><div class='songInfo'><span class='songTitle'>"+item.title+"</span><p class='song'>"+item.artist+"</p></div><div class='songMore'><img class='optionButton' src='assets/images/icons/more.png' ></div><div class='songDuration'><span class='songDuration'>"+item.duration+"</span></div></li>");
 		            		});
 	            		}else{
-	            			$(".searchOutputSong").html("<h2>Songs</h2><p class='noResuslt'>No Songs Found That match '"+val+"'..</>");
+	            			$(".searchOutputSong").html("<h2>Songs</h2><p class='noResuslt'>No Songs Found That Match '"+val+"'..</>");
 	            		}
 					});
 
@@ -41,16 +41,29 @@
 						if(atrist.length>0){
 		            		$.each(atrist,function(key, item) {
 		            		var index=key+1;
-		            		$(".artistList").append("<li class='artistRow'><div class='artistName'><span class='point' onclick='changePageTo(\"artist.php?id="+item.id+"\")'>"+item.artist+"</span></div></li>");
+		            		$(".searchOutputArtist .artistList").append("<li class='artistRow borderBottom'><div class='artistName'><span class='point' onclick='changePageTo(\"artist.php?id="+item.id+"\")'>"+item.artist+"</span></div></li>");
 		            	});
 	            		}else{
-	            			$(".searchOutputArtist").html("<h2>Artists</h2><p class='noResuslt'>No Artists Found That match '"+val+"'..</>");
+	            			$(".searchOutputArtist").html("<h2>Artists</h2><p class='noResuslt'>No Artists Found That Match '"+val+"'..</>");
+	            		}
+					});		
+					$.post("includes/handlers/ajax/getSearch.php",{albumQ:val}, function(data){
+						$(".searchOutputAlbum").html('<h2>Albums</h2><div class="grid" data-simplebar data-simplebar-auto-hide="false"><div class="gridView"></div></div>');
+						album=JSON.parse(data);
+						if(album.length>0){
+		            		$.each(album,function(key, item) {
+		            		var index=key+1;
+		            		$(".searchOutputAlbum .gridView").append("<div class='gridItem' title='Album: "+item.title+"'><a onclick='changePageTo(\"albums.php?id="+item.id+"\")'' ><div class='gridImg'><img src='"+item.artworkPath+"'></div><div class='gridInfo'>"+item.title+"</div></a></div>");
+		            	});
+	            		}else{
+	            			$(".searchOutputAlbum").html("<h2>Albums</h2><p class='noResuslt'>No Albums Found That Match '"+val+"'..</>");
 	            		}
 					});		
 				}else{
 
 					$(".searchOutputSong").html('');
 					$(".searchOutputArtist").html('');
+					$(".searchOutputAlbum").html('');
 				}
 			},500);
 		});
@@ -65,4 +78,7 @@
 
 	</div>
 
+	<div class="searchOutputAlbum">
+		
+	</div>
 </div>
