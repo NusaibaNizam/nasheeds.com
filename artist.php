@@ -17,7 +17,7 @@
 	 			<h1><?php echo $artist->getArtist();?></h1>
 
 	 		<div class="headerButton">
-	 			<button class="button" onclick="playFirstSong()">
+	 			<button class="button green" onclick="playFirstSong()">
 	 				PLAY
 	 			</button>
 

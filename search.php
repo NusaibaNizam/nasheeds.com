@@ -10,7 +10,6 @@
 <script type="text/javascript">
 
 	$(function(){
-		var timer;
 		$(".searchInput").keyup(function(){
 			clearTimeout(timer);
 			timer=setTimeout(function(){

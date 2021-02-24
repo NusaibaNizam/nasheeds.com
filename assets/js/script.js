@@ -8,10 +8,40 @@ var currentIndex=0;
 var rept=false;
 var shuffle=false;
 var userLoggedIn;
+var timer;
+function createPlaylist(){
+	$( "#dialog" ).dialog({
+      closeOnEscape: false,
+      dialogClass: "noclose",
+	  modal: true,
+	  buttons: {
+	    'OK': function () {
+	    	var name = $('input[name="playlistName"]').val();
+	    	if(name!=""){
+	    		$.post("includes/handlers/ajax/createPlaylist.php",{playList:name,user:userLoggedIn}).done(function(){
+	    			changePageTo("yourSong.php");
+	    		});
+	    	}
+	    	$('input[name="playlistName"]').val('');
+	    	$(this).dialog('close');
+	    },
+	    'Cancel': function () {
+	    	$(this).dialog('close');
+	    }
+	  }
+	});
+	
+	$(window).resize(function() {
+	    $("#dialog").dialog("option", "position", {my: "center", at: "center", of: window});
+	});
+}
 function playFirstSong(){
 	setTrack(tempPlayList[0],tempPlayList,true);
 }
 function changePageTo(url){
+	if(timer!= null){
+		clearTimeout(timer);
+	}
 
 	$("#mainContent").hide();
 	var encodedUrl;

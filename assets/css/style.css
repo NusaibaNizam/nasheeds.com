@@ -459,10 +459,9 @@ a:hover{
 	letter-spacing: .2em;
 	border-radius: 50px;
 	border: 1px solid white;
-	padding: .9%;
-	width: 11%;
+	padding: .9% 2%;
 }
-.artistInfo .headerButton .button{
+.button.green{
 	background: #00ffcc !important;
 	border-color: #00ffcc !important;
 	color: #0f0f0f !important;
@@ -470,11 +469,10 @@ a:hover{
 	margin-top: 0.1%;
 	transition: .8s;
 }
-.artistInfo .headerButton .button:hover{
+.button.green:hover{
 	background: #22ddaa !important;
 	border-color: #22ddaa !important;
 	letter-spacing: .3em;
-	min-width: 11.5%;
 	color: #3f3f3f !important;
 }
 
@@ -493,7 +491,7 @@ a:hover{
   
     background:  #848484 !important;
 }
-.grid h2, .songListContainer h2,.searchOutput h2{
+.grid h2, .songListContainer h2,.searchOutput h2,.playlistContainer h2{
 	text-align: center;
 	margin-top:.1%;
 	margin-bottom: .1%;
@@ -581,6 +579,8 @@ input:focus{
 	margin-bottom: 0  !important;
 	list-style: none;
 	margin-right: 2vw;
+	margin-left: 0;
+    padding-inline-start: 1vw;
 }
 .artistRow{
     padding: .2vh 1.5vw .4vh 1.5vw;
@@ -622,4 +622,71 @@ input:focus{
 	padding-bottom: 0 !important;
 	margin-top: 0  !important;
 	margin-bottom: 0  !important;
+}
+.playlistContainer .button{
+    display: block;
+    margin: 1vh auto 2vh auto;
+}
+.playlistContainer h2{
+	margin-top: 1vh;
+}
+#dialog{
+	display: none;
+}
+.noclose .ui-dialog-titlebar-close
+{
+    display:none !important;
+}
+.ui-dialog .ui-dialog-title{
+	width: 100% !important;
+}
+.ui-button{
+	background: #181818 !important;
+	border-color: #181818 !important;
+	color: #00ffcc !important;
+	font-weight: 900 !important;
+	cursor: pointer;
+	background: transparent;
+	letter-spacing: .2em;
+	border-radius: 10px;
+	border: 1px solid white;
+	padding: .9% 2%;
+}
+.ui-dialog .ui-dialog-buttonpane { 
+    text-align: center !important;
+}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset { 
+    float: none !important;
+}
+.ui-dialog-title {
+	float:none !important;
+	display: block;
+	text-align: center;
+	background: #282828 !important;
+	border-color: #282828 !important;
+	color: #00ffcc !important;
+}
+.ui-dialog-titlebar {
+	background: #282828 !important;
+	border-color: #282828 !important;
+}
+.ui-dialog-content {
+	font-family: 'Alegreya', serif;
+}
+.ui-widget-content {
+    background: #282828 !important;
+	border-color: #282828 !important;
+    color: #e0e0e0 !important;
+    text-align: center;
+}
+#dialog input[type="text"]{
+	background: #282828 !important;
+	border: 0px;
+	border-bottom: 1px solid #e0e0e0 !important;
+	width: 90% !important;
+	color: #e0e0e0 !important;  
+}
+#dialog input[type="text"]:focus{
+	border: 1px #e0e0e0 solid !important;
+    border-radius: 5px !important;
 }
